@@ -22,15 +22,14 @@ pdfkit
 pickle
 requests_cache
 retry_requests
-scipy.spatial
+scipy
 shap
 shapely.wkt
 streamlit
-streamlit.components.v1
 streamlit_authenticator
 sys
 typing
 unset
 xgboost
 yaml
-yaml.loader
+yaml
