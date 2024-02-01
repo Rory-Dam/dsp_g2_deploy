@@ -1,4 +1,7 @@
 cache
 __cache__
 .cache
+
+*/__pycache__/*
+
 .DS_Store
