@@ -10,7 +10,7 @@ def make_dashboard():
     import cv2
     import base64
     from itertools import groupby
-    import pdfkit as pdf
+    # import pdfkit as pdf
     import datetime
     import pathlib
     import datetime
@@ -258,13 +258,14 @@ def make_dashboard():
                         # + risk_ranking_html
 
 
-        risk_ranking_pdf = pdf.from_string(risk_ranking_html)
+        # risk_ranking_pdf = pdf.from_string(risk_ranking_html)
 
 
         risk_ranking_csv = risk_ranking.to_csv()
 
 
-        return risk_ranking, risk_ranking_html, risk_ranking_pdf, risk_ranking_csv
+        # return risk_ranking, risk_ranking_html, risk_ranking_pdf, risk_ranking_csv
+        return risk_ranking, risk_ranking_html, risk_ranking_csv
 
     tree_model = load_tree_model()
     building_model = load_building_model()
@@ -366,7 +367,8 @@ def make_dashboard():
                             unsafe_allow_html=True)
 
 
-        risk_ranking, risk_ranking_html, risk_ranking_pdf, risk_ranking_csv = \
+        # risk_ranking, risk_ranking_html, risk_ranking_pdf, risk_ranking_csv = \
+        risk_ranking, risk_ranking_html, risk_ranking_csv = \
             calc_risk_ranking(list(component_data['risks']['service_areas'].items()),
                               list(component_data['risks']['trees']['service_areas'].items()),
                               list(component_data['risks']['buildings']['service_areas'].items()),
@@ -379,13 +381,13 @@ def make_dashboard():
             st.dataframe(risk_ranking, height=270)
 
             col_pdf, col_csv = st.columns([1,3])
-            with col_pdf:
-                st.download_button(
-                    label='Download pdf',
-                    data=risk_ranking_pdf,
-                    file_name=f'risks_{str(datetime.date.today())}.pdf',
-                    mime='application/pdf'
-                )
+            # with col_pdf:
+            #     st.download_button(
+            #         label='Download pdf',
+            #         data=risk_ranking_pdf,
+            #         file_name=f'risks_{str(datetime.date.today())}.pdf',
+            #         mime='application/pdf'
+            #     )
             with col_csv:
                 st.download_button(
                     label='Download csv',
