@@ -16,7 +16,7 @@ st.markdown("""
         </style>
         """, unsafe_allow_html=True)
 
-with open('config.yaml') as file:
+with open('dashboard/config.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
 
 authenticator = stauth.Authenticate(

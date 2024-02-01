@@ -1,6 +1,6 @@
 def make_dashboard():
     import sys
-    sys.path.append('../src')
+    sys.path.append('./src')
 
     import streamlit as st
     import my_modal
@@ -93,9 +93,9 @@ def make_dashboard():
     def load_tree_model():
         # model = Inference(model_name=pathlib.Path('xgboost_new_md20_sub50_tfr.pkl'),
         model = Inference(model_name=pathlib.Path('TEST_xgboost_model_trees.pkl'),
-                                   model_dir=pathlib.Path('../src/models/trees/'),
+                                   model_dir=pathlib.Path('src/models/trees/'),
                                    model_type='trees',
-                                   grid_path=pathlib.Path('grid_trees_no_lines.csv'))
+                                   grid_path=pathlib.Path('dashboard/grid_trees_no_lines.csv'))
 
         return model
 
@@ -103,9 +103,9 @@ def make_dashboard():
     @st.cache_resource
     def load_building_model():
         model = Inference(model_name=pathlib.Path('FINAL_xgboost_model_buildings.pkl'),
-                                   model_dir=pathlib.Path('../src/models/buildings/'),
+                                   model_dir=pathlib.Path('src/models/buildings/'),
                                    model_type='buildings',
-                                   grid_path=pathlib.Path('grid_buildings.csv'))
+                                   grid_path=pathlib.Path('dashboard/grid_buildings.csv'))
 
         return model
 
@@ -114,24 +114,24 @@ def make_dashboard():
     def load_roadsign_model():
         # model = Inference(model_name=pathlib.Path('FINAL_xgboost_model_roadsigns.pkl'),
         model = Inference(model_name=pathlib.Path('xgboost_model_roadsigns.pkl'),
-                                   model_dir=pathlib.Path('../src/models/roadsigns/'),
+                                   model_dir=pathlib.Path('src/models/roadsigns/'),
                                    model_type='roadsigns',
-                                   grid_path=pathlib.Path('grid_roadsigns.csv'))
+                                   grid_path=pathlib.Path('dashboard/grid_roadsigns.csv'))
 
         return model
 
 
     @st.cache_data
     def load_component_data():
-        service_areas: dict = json.load(open('service_areas.geojson'))
+        service_areas: dict = json.load(open('dashboard/service_areas.geojson'))
 
-        zipcodes: dict = json.load(open('zipcodes_final.geojson'))
+        zipcodes: dict = json.load(open('dashboard/zipcodes_final.geojson'))
 
-        grid: dict = json.load(open('grid_final.geojson'))
+        grid: dict = json.load(open('dashboard/grid_final.geojson'))
 
-        firestations: dict = json.load(open('firestations.geojson'))
+        firestations: dict = json.load(open('dashboard/firestations.geojson'))
 
-        map_bg = cv2.imread('map_bg_light.png', cv2.IMREAD_GRAYSCALE)
+        map_bg = cv2.imread('dashboard/map_bg_light.png', cv2.IMREAD_GRAYSCALE)
         _, buffer = cv2.imencode('.png', map_bg)
         base64_encoded = base64.b64encode(buffer.tobytes()).decode("utf-8")
 
@@ -542,7 +542,7 @@ def make_dashboard():
 
     @st.cache_resource
     def make_poi_getter():
-        POI_distances = GetPoiDistances(grid_path='grid_by_hand.csv')
+        POI_distances = GetPoiDistances(grid_path='dashboard/grid_by_hand.csv')
         POI_distances.get_distances()
 
         return POI_distances
