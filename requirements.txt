@@ -18,3 +18,4 @@ streamlit
 streamlit_authenticator
 typing
 xgboost
+wkhtmltopdf
