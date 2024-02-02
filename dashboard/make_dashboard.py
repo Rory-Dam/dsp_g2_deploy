@@ -381,7 +381,8 @@ def make_dashboard():
             st.dataframe(risk_ranking, height=270)
 
             col_pdf, col_csv = st.columns([1,3])
-            # with col_pdf:
+            with col_pdf:
+                st.button(label='Download pdf', disabled=True)
             #     st.download_button(
             #         label='Download pdf',
             #         data=risk_ranking_pdf,
@@ -532,14 +533,16 @@ def make_dashboard():
         st.pyplot(fig)
 
     with tab_building:
-        plt.clf()
-        fig, ax = building_model.get_explainer_plot()
-        st.pyplot(fig)
+        st.text('Currently not available')
+        # plt.clf()
+        # fig, ax = building_model.get_explainer_plot()
+        # st.pyplot(fig)
 
     with tab_roadsign:
-        plt.clf()
-        fig, ax = roadsign_model.get_explainer_plot()
-        st.pyplot(fig)
+        st.text('Currently not available')
+        # plt.clf()
+        # fig, ax = roadsign_model.get_explainer_plot()
+        # st.pyplot(fig)
 
 
     @st.cache_resource
