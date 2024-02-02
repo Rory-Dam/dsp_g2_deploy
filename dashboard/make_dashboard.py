@@ -533,13 +533,15 @@ def make_dashboard():
         st.pyplot(fig)
 
     with tab_building:
-        st.text('Currently not available')
+        st.text('SHAP plot voor Gebouwen schade momenteel niet beschikbaar.')
+        st.text('Excuses voor het ongemak.')
         # plt.clf()
         # fig, ax = building_model.get_explainer_plot()
         # st.pyplot(fig)
 
     with tab_roadsign:
-        st.text('Currently not available')
+        st.text('SHAP plot voor Overige schade momenteel niet beschikbaar.')
+        st.text('Excuses voor het ongemak.')
         # plt.clf()
         # fig, ax = roadsign_model.get_explainer_plot()
         # st.pyplot(fig)

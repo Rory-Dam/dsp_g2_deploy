@@ -668,7 +668,7 @@ class MapComponent extends StreamlitComponentBase<State> {
                 tipFormatter={(t) => `+${t} uur`}
               />
               <Flex gap="small" align="right" wrap="wrap" justify="flex-end">
-                <Button id="reset_button">Reset Zoom</Button>
+                <Button className="mr-auto" id="reset_button">Reset Zoom</Button>
                 <Button id="service_area_button"> Verzorgings Gebied </Button>
                 <Button id="zipcode_button"> Postcodes </Button>
                 <Button id="grid_button"> Grid </Button>
