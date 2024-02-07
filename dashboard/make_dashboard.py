@@ -76,7 +76,7 @@ def make_dashboard():
     if 'model_fractions' not in st.session_state:
         set_model_fractions()
 
-    st.title('Brandweer Amsterdam')
+    st.title('Brandweer Amsterdam Stormschade')
     if st.session_state['prediction_type'] == PREDICTION_TYPE_WEATHER_FORECAST:
         st.markdown(f'Voorspelling van **{st.session_state["dates"][0].strftime("%Y-%m-%d %H:%M")}** tot **{st.session_state["dates"][1].strftime("%Y-%m-%d %H:%M")}**')
     elif st.session_state['prediction_type'] == PREDICTION_TYPE_CUSTOM_STORM:
